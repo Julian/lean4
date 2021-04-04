@@ -323,7 +323,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   set(LEANC_SHARED_LINKER_FLAGS "${LEANC_SHARED_LINKER_FLAGS} -Wl,--export-all")
 else()
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LEAN_EXTRA_LINKER_FLAGS} -rdynamic")
-  set(LEANC_EXTRA_FLAGS "${LEANC_EXTRA_FLAGS} -ldl")
+  set(LEANC_EXTRA_FLAGS "${LEANC_EXTRA_FLAGS} ${CMAKE_DL_LIBS}")
 endif()
 
 # Allow `lean` symbols in plugins without linking directly against it. If we linked against the
